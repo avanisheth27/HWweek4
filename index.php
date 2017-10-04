@@ -21,8 +21,8 @@ $obj->counter($date1);
 $obj->threestringlength($date1);
 $obj->printascii($date1);
 $obj->lastTwoChar($date1);
-$obj->words($date1);
-$obj->nine($date1);
+
+$obj->wordSeparator($date1);
 $obj->leap($year);
 class main {
  
@@ -66,74 +66,9 @@ echo " <b>4.</b> ";
  
 }
 
-function counter($date1)
+function counter($date)
 {
 echo " <b>5.</b> ";
-	$count = 1;
-	for($k=0; $k<strlen($date1); $k++)
-	{
-		if($date1[$k]==" ")
-			$count++;
-	}
-	echo "Number of Words :". $count;
-	echo "<br>";
- echo '<hr>';
- 
-}
-
-
-              
-public function threestringlength ($date1)
-{
-                             
-echo '<b>6.</b> The string length is ';
-echo strlen($date1);
-echo '<hr>';
-
-       
-}
- 
- 
-              
-/*public function fourASCII($date1)
-{
-if (ord($date1) );
-{
-echo '<br>';
-echo "<b> 6.</b> ASCII Value of  a string :" . ord($date1);
-}
-echo '<hr>';        
-}*/
- 
- 
- function printascii($date1)
-{
-echo " <b>7.</b> ";
-	echo "The Ascii value of the String is :".ord($date1[0]);
-	echo "<br>";
- echo '<hr>'; 
-}
- 
- /* public function fivelasttwo($date1)          
-{
-echo '<br>';
-echo "<b>7. </b> Last two charactersd of date :"  .substr ("$date1",-2);
- 
-                                             echo '<hr>';
-               }*/
-               
- function lastTwoChar($date1)
-{
-echo " <b>8.</b> ";
-	echo "The last two Characters of the date is :".substr ("$date1",-2);
-	echo "<br>";
- echo '<hr>';
-}
-              
-public function words($date)
-{
-echo '<br>';
-echo "<b>8. </b> Words in date:";
 $words = explode("/",$date);
 echo "No of words " . sizeof($words);
 echo "<br>";
@@ -148,12 +83,44 @@ echo $word . "<br>";
                echo '<hr>';
               
 }             
+
               
+public function threestringlength ($date1)
+{
+                             
+echo '<b>6.</b> The string length is ';
+echo strlen($date1);
+echo '<hr>';
+
+       
+}
  
  
-               public function nine ($date1)
-               {
-                              echo "<b>9.</b> To change a string into an array <br>";
+              
+
+ 
+ 
+ function printascii($date1)
+{
+echo " <b>7.</b> ";
+	echo "The Ascii value of the String is :".ord($date1[0]);
+	echo "<br>";
+ echo '<hr>'; 
+}
+ 
+               
+ function lastTwoChar($date1)
+{
+echo " <b>8.</b> ";
+	echo "The last two Characters of the date is :".substr ("$date1",-2);
+	echo "<br>";
+ echo '<hr>';
+}
+             
+
+   public function wordSeparator($date1)
+   {
+echo "<b>9.</b> To change a string into an array <br>";
  
 echo "The string is $date1<br>";
  
@@ -161,14 +128,18 @@ $beta= explode('/',$date1);
  
  
  
-foreach($beta as $element){
+foreach($beta as $element)
+{
  
    echo $element;
  
    echo " ";
 }
 echo '<hr>';
-               }
+  }
+               
+
+/
  
  
  
@@ -199,10 +170,10 @@ echo "<br>";
 for($i=0; $i< sizeof($year); $i++){
 switch((($year[$i] % 4) == 0) && ((($year[$i] % 100) != 0) || (($year[$i] % 400) == 0))){
 case True:
-echo $year[$i] . " -------> Yes, A leap year.";
+echo $year[$i] . " -> Yes, A leap year.";
 break;
 default:
-echo $year[$i] . " -------> No,Not a leap year. ";
+echo $year[$i] . " -> Not a leap year. ";
  
 }
 echo "<br>";
