@@ -1,17 +1,179 @@
 <?php
+ 
 $date =  date('Y-m-d', time());
 echo "The value of \$date: ".$date."<br>";
-
-$date2=str_replace("-", "/", $date);
-echo "the value of \$date2 :".$date2."<br>";
-
 $tar = "2017/05/24";
 echo "The value of \$tar: ".$tar."<br>";
-
 $year = array("2012", "396", "300","2000", "1100", "1089");
 echo "The value of \$year: ";
-print_r($year)
+print_r($year);
+echo '<br>';
+echo '<hr>'; 
+;
+ 
+ 
+$obj= new main();
+$date1=str_replace ("-","/","$date");
+$obj->onereplace($date);
+$obj->datecompare($date1,$tar);
+$obj-> slashPositions($date1);
+$obj->threestringlength($date1);
+$obj->fourASCII($date1);
+$obj->fivelasttwo($date1);
+$obj->words($date1);
+$obj->nine($date1);
+$obj->leap($year);
+class main {
+ 
+  
+public function onereplace($date)
+{
+ 
+echo "<b> 2. </b> ";
+echo str_replace ("-","/","$date");
+echo '<br>';
+echo '<hr>'; 
+ 
+}
+              
+
+function dateCompare($date1, $tar)
+{
+echo " <b>3.</b> ";
+	if(strtotime($date1) > strtotime($tar))
+		echo "The Future";
+	else if(strtotime($date1) < strtotime($tar))
+			echo "the past";
+		else
+			echo "Oops";
+	echo "<br>";
+ echo '<hr>'; 
+}
 
 
+function slashPositions($date1)
+{
+echo " <b>4.</b> ";
+	$positions = array();
+	$pos = -1;
+	while(($pos = strpos($date1, "/", $pos+1)) !== false)
+		$positions[] = $pos;
+	$result = implode(' ', $positions);
+	echo $result;
+	echo "<br>";
+ echo '<hr>';
+ 
+}
+              
+public function threestringlength ($date1)
+{
+                             
+echo '<b>5.</b> The string length is ';
+echo strlen($date1);
+       
+}
+ 
+ 
+              
+public function fourASCII($date1)
+{
+if (ord($date1) );
+{
+echo '<br>';
+echo "<b> 6.</b> ASCII Value of  a string :" . ord($date1);
+}
+echo '<hr>';        
+}
+ 
+ 
+               public function fivelasttwo($date1)          
+{
+echo '<br>';
+echo "<b>7. </b> Last two charactersd of date :"  .substr ("$date1",-2);
+ 
+                                             echo '<hr>';
+               }
+              
+public function words($date)
+{
+echo '<br>';
+echo "<b>8. </b> Words in date:";
+$words = explode("/",$date);
+echo "No of words " . sizeof($words);
+echo "<br>";
+echo "List of words:";
+echo "<br>";
+foreach ($words as $word)
+{
+ 
+echo $word . "<br>";
+ 
+}
+               echo '<hr>';
+              
+}             
+              
+ 
+ 
+               public function nine ($date1)
+               {
+                              echo "<b>9.</b> To change a string into an array <br>";
+ 
+echo "The string is $date1<br>";
+ 
+$beta= explode('/',$date1);
+ 
+ 
+ 
+foreach($beta as $element){
+ 
+   echo $element;
+ 
+   echo " ";
+}
+echo '<hr>';
+               }
+ 
+ 
+ 
+              
+public function leap ($year)
+{
+               echo "<b> 10.</b> Leap Year <b>(FOREACH LOOP WITH SWITCH CASE)</b>";
+ 
+echo "<br>";
+ 
+foreach ($year as $y ){
+ 
+switch((($y % 4) == 0) && ((($y % 100) != 0) || (($y % 400) == 0))){
+ 
+case True:
+echo $y . " -------> Yes, A leap year.";
+ 
+break;
+ 
+default:
+echo $y . " -------> No,Not a leap year.";
+}
+echo "<br>";
+}
+echo "<br>";
+               echo "Leap Year <b>(FOR LOOP)</b>";
+echo "<br>";
+for($i=0; $i< sizeof($year); $i++){
+switch((($year[$i] % 4) == 0) && ((($year[$i] % 100) != 0) || (($year[$i] % 400) == 0))){
+case True:
+echo $year[$i] . " -------> Yes, A leap year.";
+break;
+default:
+echo $year[$i] . " -------> No,Not a leap year. ";
+ 
+}
+echo "<br>";
+              
+}
+               echo '<hr>';
+}
+}
 
 ?>
