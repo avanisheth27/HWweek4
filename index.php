@@ -9,8 +9,7 @@ echo "The value of \$year: ";
 print_r($year);
 echo '<br>';
 echo '<hr>'; 
-;
- 
+
  
 $obj= new main();
 $date1=str_replace ("-","/","$date");
@@ -23,7 +22,7 @@ $obj->printascii($date1);
 $obj->lastTwoChar($date1);
 
 $obj->wordSeparator($date1);
-$obj->leap($year);
+$obj->findLeap($year);
 class main {
  
   
@@ -144,7 +143,7 @@ echo '<hr>';
  
  
               
-public function leap ($year)
+public function findLeap ($year)
 {
                echo "<b> 10.</b> Leap Year <b>(FOREACH LOOP WITH SWITCH CASE)</b>";
  
@@ -155,14 +154,14 @@ foreach ($year as $y ){
 switch((($y % 4) == 0) && ((($y % 100) != 0) || (($y % 400) == 0))){
  
 case True:
-echo $y . " -> Yes, A leap year.";
+echo  " True";
  
 break;
  
 default:
-echo $y . " -> Not a leap year.";
+echo  " False";
 }
-echo "<br>";
+
 }
 echo "<br>";
                echo "Leap Year <b>(FOR LOOP)</b>";
@@ -170,17 +169,61 @@ echo "<br>";
 for($i=0; $i< sizeof($year); $i++){
 switch((($year[$i] % 4) == 0) && ((($year[$i] % 100) != 0) || (($year[$i] % 400) == 0))){
 case True:
-echo $year[$i] . " -> Yes, A leap year.";
+echo  " True";
 break;
 default:
-echo $year[$i] . " -> Not a leap year. ";
+echo  " False ";
  
 }
-echo "<br>";
+
               
 }
                echo '<hr>';
 }
 }
+
+
+/*function findLeap($year)
+{
+    $con = array(400, 100, 4);
+    $boo = false;
+    foreach($year as $val)
+    {
+        for($m=0; $m<sizeof($con); $m++)
+        {
+            switch($con[$m])
+            {
+                case 400:
+                if($val%400 == 0)
+                {
+                    echo "True ";
+                    $boo = true;
+                    break;
+                }
+                
+                case 100:
+                if($val%100 == 0)
+                {
+                    echo "False ";
+                    $boo = true;
+                    break;
+                }
+                case 4:
+                if($val%4 == 0)
+                {
+                    echo "True ";
+                    $boo = true;
+                    break;
+                }
+                default:
+                echo "False ";
+                break;
+            }
+            if($boo == true)
+                break;
+        }
+    }
+}*/
+
 
 ?>
