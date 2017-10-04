@@ -17,8 +17,9 @@ $date1=str_replace ("-","/","$date");
 $obj->onereplace($date);
 $obj->datecompare($date1,$tar);
 $obj-> slashPositions($date1);
+$obj->counter($date1);
 $obj->threestringlength($date1);
-$obj->fourASCII($date1);
+$obj->printascii($date1);
 $obj->fivelasttwo($date1);
 $obj->words($date1);
 $obj->nine($date1);
@@ -64,18 +65,37 @@ echo " <b>4.</b> ";
  echo '<hr>';
  
 }
+
+function counter($date1)
+{
+echo " <b>5.</b> ";
+	$count = 1;
+	for($k=0; $k<strlen($date1); $k++)
+	{
+		if($date1[$k]==" ")
+			$count++;
+	}
+	echo $count;
+	echo "<br>";
+ echo '<hr>';
+ 
+}
+
+
               
 public function threestringlength ($date1)
 {
                              
-echo '<b>5.</b> The string length is ';
+echo '<b>6.</b> The string length is ';
 echo strlen($date1);
+echo '<hr>';
+
        
 }
  
  
               
-public function fourASCII($date1)
+/*public function fourASCII($date1)
 {
 if (ord($date1) );
 {
@@ -83,10 +103,18 @@ echo '<br>';
 echo "<b> 6.</b> ASCII Value of  a string :" . ord($date1);
 }
 echo '<hr>';        
+}*/
+ 
+ 
+ function printascii($date1)
+{
+echo " <b>7.</b> ";
+	echo "The Ascii value of the String is :".ord($date1[0]);
+	echo "<br>";
+ echo '<hr>'; 
 }
  
- 
-               public function fivelasttwo($date1)          
+  public function fivelasttwo($date1)          
 {
 echo '<br>';
 echo "<b>7. </b> Last two charactersd of date :"  .substr ("$date1",-2);
