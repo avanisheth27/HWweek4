@@ -20,7 +20,7 @@ $obj-> slashPositions($date1);
 $obj->counter($date1);
 $obj->threestringlength($date1);
 $obj->printascii($date1);
-$obj->fivelasttwo($date1);
+$obj->lastTwoChar($date1);
 $obj->words($date1);
 $obj->nine($date1);
 $obj->leap($year);
@@ -75,7 +75,7 @@ echo " <b>5.</b> ";
 		if($date1[$k]==" ")
 			$count++;
 	}
-	echo $count;
+	echo "Number of Words :". $count;
 	echo "<br>";
  echo '<hr>';
  
@@ -114,13 +114,21 @@ echo " <b>7.</b> ";
  echo '<hr>'; 
 }
  
-  public function fivelasttwo($date1)          
+ /* public function fivelasttwo($date1)          
 {
 echo '<br>';
 echo "<b>7. </b> Last two charactersd of date :"  .substr ("$date1",-2);
  
                                              echo '<hr>';
-               }
+               }*/
+               
+ function lastTwoChar($date1)
+{
+echo " <b>8.</b> ";
+	echo "The last two Characters of the date is :".substr ("$date1",-2);
+	echo "<br>";
+ echo '<hr>';
+}
               
 public function words($date)
 {
