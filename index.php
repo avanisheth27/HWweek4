@@ -155,12 +155,12 @@ foreach ($year as $y ){
 switch((($y % 4) == 0) && ((($y % 100) != 0) || (($y % 400) == 0))){
  
 case True:
-echo $y . " -------> Yes, A leap year.";
+echo $y . " -> Yes, A leap year.";
  
 break;
  
 default:
-echo $y . " -------> No,Not a leap year.";
+echo $y . " -> Not a leap year.";
 }
 echo "<br>";
 }
